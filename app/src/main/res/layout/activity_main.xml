@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <ImageButton
+        android:contentDescription="Get result"
         android:id="@+id/calculateBTN"
         android:layout_width="146dp"
         android:layout_height="117dp"
@@ -16,6 +17,7 @@
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="30dp"
         android:backgroundTint="#81D273"
+        android:onClick="calculateResult"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/result"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,6 +41,7 @@
 
     <EditText
         android:id="@+id/baseET"
+        android:minHeight="48dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -47,7 +50,7 @@
         android:layout_marginBottom="10dp"
         android:ems="10"
         android:hint="Enter base amount"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintBottom_toTopOf="@+id/interestET"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,6 +58,7 @@
 
     <EditText
         android:id="@+id/interestET"
+        android:minHeight="48dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -63,7 +67,7 @@
         android:layout_marginBottom="10dp"
         android:ems="10"
         android:hint="Enter interest amount"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintBottom_toTopOf="@+id/compoundsET"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,6 +75,7 @@
 
     <EditText
         android:id="@+id/compoundsET"
+        android:minHeight="48dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -84,4 +89,72 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/interestET" />
+
+    <Button
+        android:id="@+id/yearlyBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="compound1"
+        android:text="Yearly"
+        android:backgroundTint="#AAFF55"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/baseET"
+        app:layout_constraintEnd_toStartOf="@+id/monthlyBTN"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/quarterlyBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="compound4"
+        android:text="Quarterly"
+        android:backgroundTint="#AAFF55"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/calculateBTN"
+        app:layout_constraintEnd_toStartOf="@+id/dailyBTN"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/compoundsET" />
+
+    <Button
+        android:id="@+id/monthlyBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="compound12"
+        android:text="Monthly"
+        android:backgroundTint="#AAFF55"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/baseET"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/yearlyBTN"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/dailyBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="compound365"
+        android:text="Daily"
+        android:backgroundTint="#AAFF55"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/calculateBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/quarterlyBTN"
+        app:layout_constraintTop_toBottomOf="@+id/compoundsET" />
 </androidx.constraintlayout.widget.ConstraintLayout>
